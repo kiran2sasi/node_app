@@ -35,6 +35,7 @@ jobs:
 
     - name: Set Up Kubeconfig
       run: echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
+           chmod 600 $HOME/.kube/config  # Secure the kubeconfig file
 
     - name: Deploy to Kubernetes
       run: |
