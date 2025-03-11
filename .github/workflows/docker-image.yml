@@ -41,6 +41,10 @@ jobs:
         echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
         chmod 600 $HOME/.kube/config  # Secure the kubeconfig file
 
+    - name: Fix Minikube Paths
+      run: |
+        sed -i 's|C:\\Users\\Kiran Kumar Pulamolu\\.minikube|/home/runner/.minikube|g' $HOME/.kube/config
+
     - name: Verify Kubernetes Access
       run: kubectl get nodes
 
