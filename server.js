@@ -7,6 +7,13 @@ app.get('/', (req, res) => {
   res.send('Wlecome to API coding');
 });
 
+
+
+app.get('/hello', (req, res) => {
+  res.send('This it the hello page');
+});
+
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
